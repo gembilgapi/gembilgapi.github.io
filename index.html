@@ -356,7 +356,7 @@
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['ornefni'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['ornefni']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_modrudalurornefniflakar_1'});
+            layer.bindTooltip((layer.feature.properties['ornefni'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['ornefni']) + '</div>':''), {permanent: true, direction:'center', offset: [-0, -16], className: 'css_modrudalurornefniflakar_1'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -369,7 +369,7 @@
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['ornefni'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['ornefni']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_modrudalurornefnilinur_2'});
+            layer.bindTooltip((layer.feature.properties['ornefni'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['ornefni']) + '</div>':''), {permanent: true, direction:'center', offset: [-0, -16], className: 'css_modrudalurornefnilinur_2'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -382,7 +382,7 @@
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['ornefni'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['ornefni']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_modrudalurornefnipunktar_3'});
+            layer.bindTooltip((layer.feature.properties['ornefni'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['ornefni']) + '</div>':''), {permanent: true, direction:'center', offset: [-0, -16], className: 'css_modrudalurornefnipunktar_3', pane:'popupPane'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
