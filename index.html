@@ -11,7 +11,6 @@
         <link rel="stylesheet" href="css/L.Control.Locate.min.css">
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="css/leaflet-search.css">
         <style>
         html, body, #map {
             width: 100%;
@@ -20,7 +19,7 @@
             margin: 0;
         }
         </style>
-        <title>Örnefni í Möðrudalshlandi</title>
+        <title>Örnefni í Möðrudalslandi</title>
     </head>
     <body>
         <div id="map">
@@ -36,10 +35,9 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="js/leaflet-search.js"></script>
-        <script src="data/modrudalurornefniflakar_1.js"></script>
-        <script src="data/modrudalurornefnilinur_2.js"></script>
-        <script src="data/modrudalurornefnipunktar_3.js"></script>
+        <script src="data/modrudalurornefniflakar_2.js"></script>
+        <script src="data/modrudalurornefnilinur_3.js"></script>
+        <script src="data/modrudalurornefnipunktar_4.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -58,7 +56,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[65.38906061720967,-15.89004558212876],[65.3970036448746,-15.858180939031815]]);
+        }).fitBounds([[65.31411996692756,-15.882667478742864],[65.3380098452098,-15.789045487201246]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -120,7 +118,20 @@
         });
         layer_Veurstofagrunnkort_0;
         map.addLayer(layer_Veurstofagrunnkort_0);
-        function pop_modrudalurornefniflakar_1(feature, layer) {
+        map.createPane('pane_EsriSatellite_1');
+        map.getPane('pane_EsriSatellite_1').style.zIndex = 401;
+        var layer_EsriSatellite_1 = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            pane: 'pane_EsriSatellite_1',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 17
+        });
+        layer_EsriSatellite_1;
+        map.addLayer(layer_EsriSatellite_1);
+        function pop_modrudalurornefniflakar_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -144,36 +155,36 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_modrudalurornefniflakar_1_0() {
+        function style_modrudalurornefniflakar_2_0() {
             return {
-                pane: 'pane_modrudalurornefniflakar_1',
+                pane: 'pane_modrudalurornefniflakar_2',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(35,35,35,0.1)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(213,92,99,1.0)',
+                fillColor: 'rgba(213,92,99,0.1)',
                 interactive: true,
             }
         }
-        map.createPane('pane_modrudalurornefniflakar_1');
-        map.getPane('pane_modrudalurornefniflakar_1').style.zIndex = 401;
-        map.getPane('pane_modrudalurornefniflakar_1').style['mix-blend-mode'] = 'normal';
-        var layer_modrudalurornefniflakar_1 = new L.geoJson(json_modrudalurornefniflakar_1, {
+        map.createPane('pane_modrudalurornefniflakar_2');
+        map.getPane('pane_modrudalurornefniflakar_2').style.zIndex = 402;
+        map.getPane('pane_modrudalurornefniflakar_2').style['mix-blend-mode'] = 'normal';
+        var layer_modrudalurornefniflakar_2 = new L.geoJson(json_modrudalurornefniflakar_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_modrudalurornefniflakar_1',
-            layerName: 'layer_modrudalurornefniflakar_1',
-            pane: 'pane_modrudalurornefniflakar_1',
-            onEachFeature: pop_modrudalurornefniflakar_1,
-            style: style_modrudalurornefniflakar_1_0,
+            dataVar: 'json_modrudalurornefniflakar_2',
+            layerName: 'layer_modrudalurornefniflakar_2',
+            pane: 'pane_modrudalurornefniflakar_2',
+            onEachFeature: pop_modrudalurornefniflakar_2,
+            style: style_modrudalurornefniflakar_2_0,
         });
-        bounds_group.addLayer(layer_modrudalurornefniflakar_1);
-        map.addLayer(layer_modrudalurornefniflakar_1);
-        function pop_modrudalurornefnilinur_2(feature, layer) {
+        bounds_group.addLayer(layer_modrudalurornefniflakar_2);
+        map.addLayer(layer_modrudalurornefniflakar_2);
+        function pop_modrudalurornefnilinur_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -197,9 +208,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_modrudalurornefnilinur_2_0() {
+        function style_modrudalurornefnilinur_3_0() {
             return {
-                pane: 'pane_modrudalurornefnilinur_2',
+                pane: 'pane_modrudalurornefnilinur_3',
                 opacity: 1,
                 color: 'rgba(196,60,57,1.0)',
                 dashArray: '',
@@ -210,21 +221,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_modrudalurornefnilinur_2');
-        map.getPane('pane_modrudalurornefnilinur_2').style.zIndex = 402;
-        map.getPane('pane_modrudalurornefnilinur_2').style['mix-blend-mode'] = 'normal';
-        var layer_modrudalurornefnilinur_2 = new L.geoJson(json_modrudalurornefnilinur_2, {
+        map.createPane('pane_modrudalurornefnilinur_3');
+        map.getPane('pane_modrudalurornefnilinur_3').style.zIndex = 403;
+        map.getPane('pane_modrudalurornefnilinur_3').style['mix-blend-mode'] = 'normal';
+        var layer_modrudalurornefnilinur_3 = new L.geoJson(json_modrudalurornefnilinur_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_modrudalurornefnilinur_2',
-            layerName: 'layer_modrudalurornefnilinur_2',
-            pane: 'pane_modrudalurornefnilinur_2',
-            onEachFeature: pop_modrudalurornefnilinur_2,
-            style: style_modrudalurornefnilinur_2_0,
+            dataVar: 'json_modrudalurornefnilinur_3',
+            layerName: 'layer_modrudalurornefnilinur_3',
+            pane: 'pane_modrudalurornefnilinur_3',
+            onEachFeature: pop_modrudalurornefnilinur_3,
+            style: style_modrudalurornefnilinur_3_0,
         });
-        bounds_group.addLayer(layer_modrudalurornefnilinur_2);
-        map.addLayer(layer_modrudalurornefnilinur_2);
-        function pop_modrudalurornefnipunktar_3(feature, layer) {
+        bounds_group.addLayer(layer_modrudalurornefnilinur_3);
+        map.addLayer(layer_modrudalurornefnilinur_3);
+        function pop_modrudalurornefnipunktar_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -248,9 +259,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_modrudalurornefnipunktar_3_0() {
+        function style_modrudalurornefnipunktar_4_0() {
             return {
-                pane: 'pane_modrudalurornefnipunktar_3',
+                pane: 'pane_modrudalurornefnipunktar_4',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -264,30 +275,31 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_modrudalurornefnipunktar_3');
-        map.getPane('pane_modrudalurornefnipunktar_3').style.zIndex = 403;
-        map.getPane('pane_modrudalurornefnipunktar_3').style['mix-blend-mode'] = 'normal';
-        var layer_modrudalurornefnipunktar_3 = new L.geoJson(json_modrudalurornefnipunktar_3, {
+        map.createPane('pane_modrudalurornefnipunktar_4');
+        map.getPane('pane_modrudalurornefnipunktar_4').style.zIndex = 404;
+        map.getPane('pane_modrudalurornefnipunktar_4').style['mix-blend-mode'] = 'normal';
+        var layer_modrudalurornefnipunktar_4 = new L.geoJson(json_modrudalurornefnipunktar_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_modrudalurornefnipunktar_3',
-            layerName: 'layer_modrudalurornefnipunktar_3',
-            pane: 'pane_modrudalurornefnipunktar_3',
-            onEachFeature: pop_modrudalurornefnipunktar_3,
+            dataVar: 'json_modrudalurornefnipunktar_4',
+            layerName: 'layer_modrudalurornefnipunktar_4',
+            pane: 'pane_modrudalurornefnipunktar_4',
+            onEachFeature: pop_modrudalurornefnipunktar_4,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_modrudalurornefnipunktar_3_0(feature));
+                return L.circleMarker(latlng, style_modrudalurornefnipunktar_4_0(feature));
             },
         });
-        bounds_group.addLayer(layer_modrudalurornefnipunktar_3);
-        map.addLayer(layer_modrudalurornefnipunktar_3);
+        bounds_group.addLayer(layer_modrudalurornefnipunktar_4);
+        map.addLayer(layer_modrudalurornefnipunktar_4);
         var overlaysTree = [
-            {label: '<img src="legend/modrudalurornefnipunktar_3.png" /> modrudalur-ornefni-punktar', layer: layer_modrudalurornefnipunktar_3},
-            {label: '<img src="legend/modrudalurornefnilinur_2.png" /> modrudalur-ornefni-linur', layer: layer_modrudalurornefnilinur_2},
-            {label: '<img src="legend/modrudalurornefniflakar_1.png" /> modrudalur-ornefni-flakar', layer: layer_modrudalurornefniflakar_1},
+            {label: '<img src="legend/modrudalurornefnipunktar_4.png" /> modrudalur-ornefni-punktar', layer: layer_modrudalurornefnipunktar_4},
+            {label: '<img src="legend/modrudalurornefnilinur_3.png" /> modrudalur-ornefni-linur', layer: layer_modrudalurornefnilinur_3},
+            {label: '<img src="legend/modrudalurornefniflakar_2.png" /> modrudalur-ornefni-flakar', layer: layer_modrudalurornefniflakar_2},
+            {label: "Esri Satellite", layer: layer_EsriSatellite_1},
             {label: "Veðurstofa grunnkort", layer: layer_Veurstofagrunnkort_0, radioGroup: 'bm' },]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
@@ -351,12 +363,12 @@
         });       
         setBounds();
         var i = 0;
-        layer_modrudalurornefniflakar_1.eachLayer(function(layer) {
+        layer_modrudalurornefniflakar_2.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['ornefni'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['ornefni']) + '</div>':''), {permanent: true, direction:'center', offset: [-0, -16], className: 'css_modrudalurornefniflakar_1'});
+            layer.bindTooltip((layer.feature.properties['ornefni'] !== null?String('<div style="color: #fb413f; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['ornefni']) + '</div>':''), {permanent: true, direction: 'center', offset: [-0, -16], className: 'css_modrudalurornefniflakar_2'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -364,12 +376,12 @@
               i++;
         });
         var i = 0;
-        layer_modrudalurornefnilinur_2.eachLayer(function(layer) {
+        layer_modrudalurornefnilinur_3.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['ornefni'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['ornefni']) + '</div>':''), {permanent: true, direction:'center', offset: [-0, -16], className: 'css_modrudalurornefnilinur_2'});
+            layer.bindTooltip((layer.feature.properties['ornefni'] !== null?String('<div style="color: #fb5b5a; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['ornefni']) + '</div>':''), {permanent: true, direction: 'center', offset: [-0, -16], className: 'css_modrudalurornefnilinur_3'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -377,34 +389,27 @@
               i++;
         });
         var i = 0;
-        layer_modrudalurornefnipunktar_3.eachLayer(function(layer) {
+        layer_modrudalurornefnipunktar_4.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['ornefni'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['ornefni']) + '</div>':''), {permanent: true, direction:'center', offset: [-0, -16], className: 'css_modrudalurornefnipunktar_3', pane:'popupPane'});
+            layer.bindTooltip((layer.feature.properties['ornefni'] !== null?String('<div style="color: #fb5654; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['ornefni']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_modrudalurornefnipunktar_4'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        map.addControl(new L.Control.Search({
-            layer: layer_modrudalurornefniflakar_1,
-            initial: false,
-            hideMarkerOnCollapse: true,
-            propertyName: 'ornefni'}));
-        document.getElementsByClassName('search-button')[0].className +=
-         ' fa fa-binoculars';
-        resetLabels([layer_modrudalurornefniflakar_1,layer_modrudalurornefnilinur_2,layer_modrudalurornefnipunktar_3]);
+        resetLabels([layer_modrudalurornefniflakar_2,layer_modrudalurornefnilinur_3,layer_modrudalurornefnipunktar_4]);
         map.on("zoomend", function(){
-            resetLabels([layer_modrudalurornefniflakar_1,layer_modrudalurornefnilinur_2,layer_modrudalurornefnipunktar_3]);
+            resetLabels([layer_modrudalurornefniflakar_2,layer_modrudalurornefnilinur_3,layer_modrudalurornefnipunktar_4]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_modrudalurornefniflakar_1,layer_modrudalurornefnilinur_2,layer_modrudalurornefnipunktar_3]);
+            resetLabels([layer_modrudalurornefniflakar_2,layer_modrudalurornefnilinur_3,layer_modrudalurornefnipunktar_4]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_modrudalurornefniflakar_1,layer_modrudalurornefnilinur_2,layer_modrudalurornefnipunktar_3]);
+            resetLabels([layer_modrudalurornefniflakar_2,layer_modrudalurornefnilinur_3,layer_modrudalurornefnipunktar_4]);
         });
         </script>
     </body>
